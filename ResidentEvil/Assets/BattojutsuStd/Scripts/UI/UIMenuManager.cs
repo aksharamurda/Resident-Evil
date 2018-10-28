@@ -14,6 +14,8 @@ namespace BattojutsuStd.UI
         public StageManager stageManager;
         private Transform parentUIPanelZone;
         private Transform parentUIPanelLevel;
+        private Transform buttonBackUIPanelLevel;
+
         private StageData currentStageData;
 
         void Awake()
@@ -29,12 +31,19 @@ namespace BattojutsuStd.UI
 
             parentUIPanelZone = GameObject.Find("UIPanelZoneViewport").transform;
             parentUIPanelLevel = GameObject.Find("UIPanelLevelViewport").transform;
+            buttonBackUIPanelLevel = GameObject.Find("UIButtonBackPanelLevel").transform;
+            buttonBackUIPanelLevel.gameObject.SetActive(false);
+
             CreatePanelUIZone();
         }
 
         public void CreatePanelUIZone()
         {
-            
+            foreach (Transform t in parentUIPanelLevel)
+            {
+                Destroy(t.gameObject);
+            }
+
             for (int x = 0; x < stageManager.listStages.Count; x++)
             {
                 currentStageData = StageSave.GetStageData(stageManager.listStages[x].zone.zoneName);
@@ -60,6 +69,13 @@ namespace BattojutsuStd.UI
                 newPanel.transform.localScale = Vector3.one;
             }
 
+            buttonBackUIPanelLevel.gameObject.SetActive(true);
+        }
+
+        public void OnButtonBackUIPanelLevel()
+        {
+            buttonBackUIPanelLevel.gameObject.SetActive(false);
+            CreatePanelUIZone();
         }
     }
 }
