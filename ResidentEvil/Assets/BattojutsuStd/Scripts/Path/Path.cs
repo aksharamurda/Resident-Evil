@@ -4,14 +4,18 @@ using UnityEngine;
 
 namespace BattojutsuStd.Path
 {
+    [RequireComponent(typeof(CharacterController))]
     public class Path : PathMovement
     {
         private float rotSpeed = 360.0f;
         private float currSpeed;
 
         // Properties
+        public bool useCharaterController;
         public bool lookDownPath;
         public bool allowOffscreenMovement;
+
+        private CharacterController characterController;
 
         public override float distToDestination
         {
@@ -56,6 +60,12 @@ namespace BattojutsuStd.Path
             hasDestination = false;
         }
 
+        void Awake()
+        {
+            characterController = gameObject.GetComponent<CharacterController>();
+            characterController.enabled = useCharaterController;
+        }
+
         void Update()
         {
             if (!hasDestination)
@@ -78,7 +88,10 @@ namespace BattojutsuStd.Path
                 transform.forward = Vector3.RotateTowards(transform.forward, moveVector, Time.deltaTime * rotSpeed * Mathf.Deg2Rad, 0.0f);
             }
 
-            gameObject.GetComponent<CharacterController>().SimpleMove(moveVector);
+            if (useCharaterController)
+                characterController.SimpleMove(moveVector);
+            else
+                transform.Translate(moveVector * Time.deltaTime * currSpeed, Space.World);
         }
     }
 }
