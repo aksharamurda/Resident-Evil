@@ -33,7 +33,7 @@ namespace BattojutsuStd.UI
             else
                 imagePanelZone.sprite = stage.spriteLocked;
 
-            
+
 
             if (stage.zone.isCommingSoon)
                 imagePanelZone.sprite = stage.spriteCommingSoon;

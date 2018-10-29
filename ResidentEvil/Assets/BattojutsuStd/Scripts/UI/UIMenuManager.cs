@@ -121,6 +121,7 @@ namespace BattojutsuStd.UI
         {
             buttonBackUIPanelLevel.gameObject.SetActive(false);
             CreatePanelUIZone();
+            LevelManager.instance.OnClearLevel();
         }
     }
 }
