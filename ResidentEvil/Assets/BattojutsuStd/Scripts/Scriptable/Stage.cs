@@ -9,6 +9,7 @@ namespace BattojutsuStd.Scriptable
     public class Stage : ScriptableObject
     {
         [Header("UI")]
+        public Sprite spriteCommingSoon;
         public Sprite spriteLocked;
         public Sprite spriteUnlocked;
 

@@ -84,6 +84,9 @@ namespace BattojutsuStd.UI
                 else
                 {
                     Stage stage = ScriptableObject.CreateInstance(typeof(Stage)) as Stage;
+                    stage.spriteLocked = stageManager.listStages[x].spriteLocked;
+                    stage.spriteUnlocked = stageManager.listStages[x].spriteUnlocked;
+                    stage.spriteCommingSoon = stageManager.listStages[x].spriteCommingSoon;
                     stage.zone = currentStageData.zone;
                     stage.levels = currentStageData.levels;
 

@@ -11,33 +11,41 @@ namespace BattojutsuStd.UI
 {
     public class UIPanelZone : MonoBehaviour
     {
+        public Image imagePanelZone;
+        public GameObject panelItem;
         public TextMeshProUGUI zoneTitle;
         public TextMeshProUGUI zoneMaxItem;
 
-        public Stage stage;
-        /*
-        public Zone zone;
-        public List<Level> levels = new List<Level>();
-        */
+        private Stage stage;
 
         public void InitUIPanelZone(Stage s)
         {
             stage = s;
+        }
+
+        private void Start()
+        {
 
             zoneTitle.text = stage.zone.zoneTitle;
 
-            if (stage.zone.isUnlocked && !stage.zone.isCommingSoon)
-                GetComponent<Image>().color = Color.white;
-            else if (!stage.zone.isUnlocked && stage.zone.isCommingSoon)
-                GetComponent<Image>().color = Color.gray;
+            if (stage.zone.isUnlocked)
+                imagePanelZone.sprite = stage.spriteUnlocked;
+            else
+                imagePanelZone.sprite = stage.spriteLocked;
+
+            
+
+            if (stage.zone.isCommingSoon)
+                imagePanelZone.sprite = stage.spriteCommingSoon;
 
             zoneMaxItem.text = stage.zone.currentItemMax + "/" + stage.zone.zoneItemMax;
+            panelItem.SetActive(!stage.zone.isCommingSoon && stage.zone.isUnlocked);
 
         }
 
         public void OnButtonSelectZone()
         {
-            if (!stage.zone.isUnlocked || !stage.zone.isCommingSoon)
+            if (!stage.zone.isUnlocked || stage.zone.isCommingSoon)
                 return;
 
             UIMenuManager.instance.CreatePanelUILevel(stage.zone, stage.levels);
