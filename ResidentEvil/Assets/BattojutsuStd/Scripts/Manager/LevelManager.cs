@@ -38,7 +38,8 @@ namespace BattojutsuStd.Manager
 
         public void DebugSaveZoneData()
         {
-            currentZone.isCompleted = true;
+            if(currentZone.currentItemMax >= currentZone.zoneItemMax)
+                currentZone.isCompleted = true;
 
             StageData nextStageData = StageSave.GetStageData("Zone" + (currentZone.ID + 1));
             if (nextStageData == null)
@@ -53,7 +54,8 @@ namespace BattojutsuStd.Manager
 
         public void DebugSaveLevelData()
         {
-            currentLevel.isCompleted = true;
+            if(currentLevel.levelStar > 2)
+                currentLevel.isCompleted = true;
 
             StageData currentStageData = StageSave.GetStageData(currentZone.zoneName);
             if (currentStageData == null)
@@ -64,19 +66,26 @@ namespace BattojutsuStd.Manager
                 //CURRENT LEVEL
                 if (currentStageData.levels[i].ID == currentLevel.ID)
                 {
-                    if (currentLevel.isCompleted)
+                    if (currentLevel.levelStar > 0)
                     {
                         currentStageData.levels[i] = currentLevel;
 
+                        //IF STAR COUNT BLA BLA BLA
+                        currentZone.currentItemMax += currentLevel.levelStar;
+                        currentStageData.zone = currentZone;
+
+                        //NEXT LEVEL UNLOCK
                         int index = i + 1;
                         if (index < currentStageData.levels.Count)
                             currentStageData.levels[index].isUnlocked = true;
+
 
                         StageSave.UpdateStageData(currentStageData);
                     }
                 }
             }
 
+            DebugSaveZoneData();
         }
     }
 }

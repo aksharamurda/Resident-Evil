@@ -80,7 +80,7 @@ namespace BattojutsuStd.Util
                 }
                 catch
                 {
-                    Debug.Log("Data has been manual change!");
+                    Debug.Log("You trying to change data!");
                     StageManager stManager = Resources.Load("Scriptable/Stage/Stage Manager") as StageManager;
                     foreach (Stage stage in stManager.listStages)
                     {

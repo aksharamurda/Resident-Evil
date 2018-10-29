@@ -15,9 +15,9 @@ MonoBehaviour:
     ID: 1
     zoneName: Zone1
     zoneTitle: The Beginning...
-    zoneItemMax: 35
+    zoneItemMax: 30
     currentItemMax: 0
-    isCompleted: 1
+    isCompleted: 0
     isUnlocked: 1
   levels:
   - ID: 1
