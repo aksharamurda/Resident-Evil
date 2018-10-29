@@ -12,24 +12,41 @@ MonoBehaviour:
   m_Name: Stage2
   m_EditorClassIdentifier: 
   zone:
+    ID: 2
     zoneName: Zone2
     zoneTitle: Abandoned City
     zoneItemMax: 40
     currentItemMax: 0
+    isCompleted: 0
     isUnlocked: 0
   levels:
-  - levelName: Zone2Level1
+  - ID: 1
+    levelName: Zone2Level1
     levelStar: 0
-    isUnlocked: 0
-  - levelName: Zone2Level2
+    isTutorial: 0
+    isUnlocked: 1
+    isCompleted: 0
+  - ID: 2
+    levelName: Zone2Level2
     levelStar: 0
+    isTutorial: 0
     isUnlocked: 0
-  - levelName: Zone2Level3
+    isCompleted: 0
+  - ID: 3
+    levelName: Zone2Level3
     levelStar: 0
+    isTutorial: 0
     isUnlocked: 0
-  - levelName: Zone2Level4
+    isCompleted: 0
+  - ID: 4
+    levelName: Zone2Level4
     levelStar: 0
+    isTutorial: 0
     isUnlocked: 0
-  - levelName: Zone2Level5
+    isCompleted: 0
+  - ID: 5
+    levelName: Zone2Level5
     levelStar: 0
+    isTutorial: 0
     isUnlocked: 0
+    isCompleted: 0

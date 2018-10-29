@@ -11,6 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb8096dcb1cf4df49a88ab6e18122065, type: 3}
   m_Name: Stage Manager
   m_EditorClassIdentifier: 
+  levelManager: {fileID: 1390527178463284, guid: 1e08a22f927df134a966c8412881b5f9,
+    type: 2}
   prefabPanelZone: {fileID: 1678577380761824, guid: 05c171cd974293946885d54357fb0521,
     type: 2}
   prefabPanelLevel: {fileID: 1126973494523240, guid: 0d3751d1fb3a9d04a930139c624d3385,

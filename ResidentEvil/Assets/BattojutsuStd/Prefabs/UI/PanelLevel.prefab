@@ -399,15 +399,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b82061716059b347a208b91fa14986b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textLevelName: {fileID: 114259192544134390}
   starActive: {fileID: 21300000, guid: 956755f212b4a9647bec666fc4c809fa, type: 3}
   starImage:
   - {fileID: 114289925004615828}
   - {fileID: 114238829794525526}
   - {fileID: 114902661954552010}
-  level:
-    levelName: 
-    levelStar: 0
-    isUnlocked: 0
 --- !u!222 &222008625008378820
 CanvasRenderer:
   m_ObjectHideFlags: 1

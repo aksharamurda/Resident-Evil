@@ -1,5 +1,6 @@
 ﻿using BattojutsuStd.Scriptable;
 using BattojutsuStd.Serialize;
+using BattojutsuStd.Util;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -26,8 +27,8 @@ namespace BattojutsuStd.UI
                 GetComponent<Image>().color = Color.white;
 
             zoneMaxItem.text = zone.currentItemMax + "/" + zone.zoneItemMax;
-        }
 
+        }
 
         public void OnButtonSelectZone()
         {

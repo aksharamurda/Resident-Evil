@@ -1,4 +1,5 @@
-﻿using BattojutsuStd.Scriptable;
+﻿using BattojutsuStd.Manager;
+using BattojutsuStd.Scriptable;
 using BattojutsuStd.Serialize;
 using BattojutsuStd.Util;
 using System.Collections;
@@ -20,9 +21,11 @@ namespace BattojutsuStd.UI
 
         void Awake()
         {
+            if (LevelManager.instance == null)
+                Instantiate(stageManager.levelManager);
+
             instance = this;
             
-
             foreach (Stage stage in stageManager.listStages)
             {
                 StageData stageData = new StageData(stage.zone, stage.levels);

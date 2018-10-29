@@ -12,49 +12,71 @@ MonoBehaviour:
   m_Name: Stage1
   m_EditorClassIdentifier: 
   zone:
+    ID: 1
     zoneName: Zone1
     zoneTitle: The Beginning...
     zoneItemMax: 35
     currentItemMax: 0
+    isCompleted: 1
     isUnlocked: 1
   levels:
-  - levelName: Zone1Level1
+  - ID: 1
+    levelName: Zone1Level1
     levelStar: 0
     isTutorial: 1
     isUnlocked: 1
-  - levelName: Zone1Level2
+    isCompleted: 0
+  - ID: 2
+    levelName: Zone1Level2
     levelStar: 0
     isTutorial: 1
     isUnlocked: 0
-  - levelName: Zone1Level3
+    isCompleted: 0
+  - ID: 3
+    levelName: Zone1Level3
     levelStar: 0
     isTutorial: 1
     isUnlocked: 0
-  - levelName: Zone1Level4
+    isCompleted: 0
+  - ID: 4
+    levelName: Zone1Level4
     levelStar: 0
     isTutorial: 0
     isUnlocked: 0
-  - levelName: Zone1Level5
+    isCompleted: 0
+  - ID: 5
+    levelName: Zone1Level5
     levelStar: 0
     isTutorial: 0
     isUnlocked: 0
-  - levelName: Zone1Level6
+    isCompleted: 0
+  - ID: 6
+    levelName: Zone1Level6
     levelStar: 0
     isTutorial: 0
     isUnlocked: 0
-  - levelName: Zone1Level7
+    isCompleted: 0
+  - ID: 7
+    levelName: Zone1Level7
     levelStar: 0
     isTutorial: 0
     isUnlocked: 0
-  - levelName: Zone1Level8
+    isCompleted: 0
+  - ID: 8
+    levelName: Zone1Level8
     levelStar: 0
     isTutorial: 0
     isUnlocked: 0
-  - levelName: Zone1Level9
+    isCompleted: 0
+  - ID: 9
+    levelName: Zone1Level9
     levelStar: 0
     isTutorial: 0
     isUnlocked: 0
-  - levelName: Zone1Level10
+    isCompleted: 0
+  - ID: 10
+    levelName: Zone1Level10
     levelStar: 0
     isTutorial: 0
     isUnlocked: 0
+    isCompleted: 0

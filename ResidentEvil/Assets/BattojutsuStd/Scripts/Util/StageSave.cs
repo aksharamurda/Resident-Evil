@@ -46,15 +46,19 @@ namespace BattojutsuStd.Util
 
         public static StageData GetStageData(string zoneName)
         {
-            byte[] key = Convert.FromBase64String(Crypto.cryptoKey);
-            BinaryFormatter binFormat = new BinaryFormatter();
-            FileStream fileStream = new FileStream(Application.persistentDataPath + "/" + zoneName + ".bin", FileMode.Open);
-
-            using (CryptoStream cryptoStream = Crypto.CreateDecryptionStream(key, fileStream))
+            if (File.Exists(Application.persistentDataPath + "/" + zoneName + ".bin"))
             {
-                return (StageData)binFormat.Deserialize(cryptoStream);
+                byte[] key = Convert.FromBase64String(Crypto.cryptoKey);
+                BinaryFormatter binFormat = new BinaryFormatter();
+                FileStream fileStream = new FileStream(Application.persistentDataPath + "/" + zoneName + ".bin", FileMode.Open);
+
+                using (CryptoStream cryptoStream = Crypto.CreateDecryptionStream(key, fileStream))
+                {
+                    return (StageData)binFormat.Deserialize(cryptoStream);
+                }
             }
 
+            return null;
         }
     }
 }

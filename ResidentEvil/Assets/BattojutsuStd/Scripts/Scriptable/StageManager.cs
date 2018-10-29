@@ -8,6 +8,7 @@ namespace BattojutsuStd.Scriptable
     [CreateAssetMenu(fileName = "Stage Manager", menuName = "Scriptable/Stage Manager", order = 1)]
     public class StageManager : ScriptableObject
     {
+        public GameObject levelManager;
         public GameObject prefabPanelZone;
         public GameObject prefabPanelLevel;
         public List<Stage> listStages = new List<Stage>();
