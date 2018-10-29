@@ -4,6 +4,7 @@ using BattojutsuStd.Serialize;
 using BattojutsuStd.Util;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace BattojutsuStd.UI
@@ -16,8 +17,9 @@ namespace BattojutsuStd.UI
         private Transform parentUIPanelZone;
         private Transform parentUIPanelLevel;
         private Transform buttonBackUIPanelLevel;
+        private Transform uiCoinText;
 
-        private StageData currentStageData;
+        //private StageData currentStageData;
 
         void Awake()
         {
@@ -25,19 +27,40 @@ namespace BattojutsuStd.UI
                 Instantiate(stageManager.levelManager);
 
             instance = this;
-            
-            foreach (Stage stage in stageManager.listStages)
-            {
-                StageData stageData = new StageData(stage.zone, stage.levels);
-                StageSave.CreateStageData(stageData);
-            }
 
+            InitData();
+
+            uiCoinText = GameObject.Find("UICoinText").transform;
             parentUIPanelZone = GameObject.Find("UIPanelZoneViewport").transform;
             parentUIPanelLevel = GameObject.Find("UIPanelLevelViewport").transform;
             buttonBackUIPanelLevel = GameObject.Find("UIButtonBackPanelLevel").transform;
             buttonBackUIPanelLevel.gameObject.SetActive(false);
 
             CreatePanelUIZone();
+            InitUIProfile();
+        }
+
+        void InitData()
+        {
+            if (stageManager == null)
+                stageManager = Resources.Load("Scriptable/Stage/Stage Manager") as StageManager;
+
+            PlayerData playerProfile = new PlayerData();
+            PlayerSave.CreatePlayerData(playerProfile);
+
+            foreach (Stage stage in stageManager.listStages)
+            {
+                StageData stageData = new StageData(stage.zone, stage.levels);
+                StageSave.CreateStageData(stageData);
+            }
+
+
+        }
+
+        public void InitUIProfile()
+        {
+            PlayerData playerProfile = PlayerSave.GetPlayerData();
+            uiCoinText.GetComponent<TextMeshProUGUI>().text = playerProfile.playerCoin.ToString();
         }
 
         public void CreatePanelUIZone()
@@ -49,7 +72,7 @@ namespace BattojutsuStd.UI
 
             for (int x = 0; x < stageManager.listStages.Count; x++)
             {
-                currentStageData = StageSave.GetStageData(stageManager.listStages[x].zone.zoneName);
+                StageData currentStageData = StageSave.GetStageData(stageManager.listStages[x].zone.zoneName);
                 GameObject newPanel = Instantiate(stageManager.prefabPanelZone);
                 newPanel.GetComponent<UIPanelZone>().InitUIPanelZone(currentStageData.zone, currentStageData.levels);
                 newPanel.transform.SetParent(parentUIPanelZone);
