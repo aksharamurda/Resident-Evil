@@ -50,6 +50,9 @@ namespace BattojutsuStd.UI
 
             foreach (Stage stage in stageManager.listStages)
             {
+                if (stage.zone.isCommingSoon)
+                    continue;
+
                 StageData stageData = new StageData(stage.zone, stage.levels);
                 StageSave.CreateStageData(stageData);
             }
@@ -72,9 +75,22 @@ namespace BattojutsuStd.UI
 
             for (int x = 0; x < stageManager.listStages.Count; x++)
             {
+
                 StageData currentStageData = StageSave.GetStageData(stageManager.listStages[x].zone.zoneName);
                 GameObject newPanel = Instantiate(stageManager.prefabPanelZone);
-                newPanel.GetComponent<UIPanelZone>().InitUIPanelZone(currentStageData.zone, currentStageData.levels);
+
+                if (stageManager.listStages[x].zone.isCommingSoon)
+                    newPanel.GetComponent<UIPanelZone>().InitUIPanelZone(stageManager.listStages[x]);
+                else
+                {
+                    Stage stage = ScriptableObject.CreateInstance(typeof(Stage)) as Stage;
+                    stage.zone = currentStageData.zone;
+                    stage.levels = currentStageData.levels;
+
+                    newPanel.GetComponent<UIPanelZone>().InitUIPanelZone(stage);
+                }
+                    
+
                 newPanel.transform.SetParent(parentUIPanelZone);
                 newPanel.transform.localScale = Vector3.one;
             }

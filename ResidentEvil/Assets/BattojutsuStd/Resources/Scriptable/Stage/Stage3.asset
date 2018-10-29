@@ -9,76 +9,74 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f23240be0f0a214c9c0d387fe1c6cad, type: 3}
-  m_Name: Stage1
+  m_Name: Stage3
   m_EditorClassIdentifier: 
-  spriteLocked: {fileID: 0}
-  spriteUnlocked: {fileID: 0}
   zone:
-    ID: 1
-    zoneName: Zone1
-    zoneTitle: The Beginning...
-    zoneItemMax: 30
+    ID: 3
+    isCommingSoon: 1
+    zoneName: Zone3
+    zoneTitle: Comming Soon
+    zoneItemMax: 40
     currentItemMax: 0
-    isCommingSoon: 0
     isCompleted: 0
-    isUnlocked: 1
+    isUnlocked: 0
   levels:
   - ID: 1
-    levelName: Zone1Level1
+    levelName: Zone3Level1
     levelStar: 0
-    isTutorial: 1
+    isTutorial: 0
     isUnlocked: 1
     isCompleted: 0
   - ID: 2
-    levelName: Zone1Level2
+    levelName: Zone3Level2
     levelStar: 0
-    isTutorial: 1
+    isTutorial: 0
     isUnlocked: 0
     isCompleted: 0
   - ID: 3
-    levelName: Zone1Level3
+    levelName: Zone3Level3
     levelStar: 0
-    isTutorial: 1
+    isTutorial: 0
     isUnlocked: 0
     isCompleted: 0
   - ID: 4
-    levelName: Zone1Level4
+    levelName: Zone3Level4
     levelStar: 0
     isTutorial: 0
     isUnlocked: 0
     isCompleted: 0
   - ID: 5
-    levelName: Zone1Level5
+    levelName: Zone3Level5
     levelStar: 0
     isTutorial: 0
     isUnlocked: 0
     isCompleted: 0
   - ID: 6
-    levelName: Zone1Level6
+    levelName: Zone3Level6
     levelStar: 0
     isTutorial: 0
     isUnlocked: 0
     isCompleted: 0
   - ID: 7
-    levelName: Zone1Level7
+    levelName: Zone3Level7
     levelStar: 0
     isTutorial: 0
     isUnlocked: 0
     isCompleted: 0
   - ID: 8
-    levelName: Zone1Level8
+    levelName: Zone3Level8
     levelStar: 0
     isTutorial: 0
     isUnlocked: 0
     isCompleted: 0
   - ID: 9
-    levelName: Zone1Level9
+    levelName: Zone3Level9
     levelStar: 0
     isTutorial: 0
     isUnlocked: 0
     isCompleted: 0
   - ID: 10
-    levelName: Zone1Level10
+    levelName: Zone3Level10
     levelStar: 0
     isTutorial: 0
     isUnlocked: 0

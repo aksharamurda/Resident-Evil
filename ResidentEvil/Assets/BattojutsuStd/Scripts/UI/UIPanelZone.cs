@@ -14,28 +14,33 @@ namespace BattojutsuStd.UI
         public TextMeshProUGUI zoneTitle;
         public TextMeshProUGUI zoneMaxItem;
 
+        public Stage stage;
+        /*
         public Zone zone;
         public List<Level> levels = new List<Level>();
+        */
 
-        public void InitUIPanelZone(Zone z, List<Level> ls)
+        public void InitUIPanelZone(Stage s)
         {
-            zone = z;
-            levels = ls;
-            zoneTitle.text = zone.zoneTitle;
+            stage = s;
 
-            if (zone.isUnlocked)
+            zoneTitle.text = stage.zone.zoneTitle;
+
+            if (stage.zone.isUnlocked && !stage.zone.isCommingSoon)
                 GetComponent<Image>().color = Color.white;
+            else if (!stage.zone.isUnlocked && stage.zone.isCommingSoon)
+                GetComponent<Image>().color = Color.gray;
 
-            zoneMaxItem.text = zone.currentItemMax + "/" + zone.zoneItemMax;
+            zoneMaxItem.text = stage.zone.currentItemMax + "/" + stage.zone.zoneItemMax;
 
         }
 
         public void OnButtonSelectZone()
         {
-            if (!zone.isUnlocked)
+            if (!stage.zone.isUnlocked || !stage.zone.isCommingSoon)
                 return;
 
-            UIMenuManager.instance.CreatePanelUILevel(zone, levels);
+            UIMenuManager.instance.CreatePanelUILevel(stage.zone, stage.levels);
         }
     }
 }

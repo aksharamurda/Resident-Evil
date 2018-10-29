@@ -8,6 +8,10 @@ namespace BattojutsuStd.Scriptable
     [CreateAssetMenu(fileName = "Stage", menuName = "Scriptable/Stage", order = 1)]
     public class Stage : ScriptableObject
     {
+        [Header("UI")]
+        public Sprite spriteLocked;
+        public Sprite spriteUnlocked;
+
         [Header("Zone")]
         public Zone zone;
         [Header("Levels")]
