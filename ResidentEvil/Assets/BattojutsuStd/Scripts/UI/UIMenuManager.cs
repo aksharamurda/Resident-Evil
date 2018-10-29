@@ -18,6 +18,7 @@ namespace BattojutsuStd.UI
         private Transform parentUIPanelLevel;
         private Transform buttonBackUIPanelLevel;
         private Transform uiCoinText;
+        private Transform uiStarTotalText;
 
         //private StageData currentStageData;
 
@@ -35,6 +36,8 @@ namespace BattojutsuStd.UI
             parentUIPanelLevel = GameObject.Find("UIPanelLevelViewport").transform;
             buttonBackUIPanelLevel = GameObject.Find("UIButtonBackPanelLevel").transform;
             buttonBackUIPanelLevel.gameObject.SetActive(false);
+
+            uiStarTotalText = GameObject.Find("UITotalStarText").transform;
 
             CreatePanelUIZone();
             InitUIProfile();
@@ -64,6 +67,18 @@ namespace BattojutsuStd.UI
         {
             PlayerData playerProfile = PlayerSave.GetPlayerData();
             uiCoinText.GetComponent<TextMeshProUGUI>().text = playerProfile.playerCoin.ToString();
+
+            int totalStarSaved = 0;
+            int totalStarGoal = 0;
+            foreach (Stage stg in stageManager.listStages)
+            {
+                totalStarGoal += stg.zone.zoneStarGoal;
+                totalStarSaved += stg.zone.zoneStarSaved;
+                Debug.Log(totalStarGoal);
+            }
+
+            uiStarTotalText.GetComponent<TextMeshProUGUI>().text = "TOTAL : " + totalStarSaved + "/" + totalStarGoal;
+
         }
 
         public void CreatePanelUIZone()

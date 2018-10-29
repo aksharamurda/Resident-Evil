@@ -38,7 +38,7 @@ namespace BattojutsuStd.UI
             if (stage.zone.isCommingSoon)
                 imagePanelZone.sprite = stage.spriteCommingSoon;
 
-            zoneMaxItem.text = stage.zone.currentItemMax + "/" + stage.zone.zoneItemMax;
+            zoneMaxItem.text = stage.zone.zoneStarSaved + "/" + stage.zone.zoneStarGoal;
             panelItem.SetActive(!stage.zone.isCommingSoon && stage.zone.isUnlocked);
 
         }

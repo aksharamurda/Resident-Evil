@@ -11,8 +11,8 @@ namespace BattojutsuStd.Serialize
         public int ID;
         public string zoneName = "Zone";
         public string zoneTitle;
-        public int zoneItemMax;
-        public int currentItemMax;
+        public int zoneStarGoal;
+        public int zoneStarSaved;
         public bool isCommingSoon;
         public bool isCompleted;
         public bool isUnlocked;

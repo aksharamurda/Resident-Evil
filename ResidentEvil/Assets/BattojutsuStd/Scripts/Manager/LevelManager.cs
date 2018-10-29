@@ -38,7 +38,7 @@ namespace BattojutsuStd.Manager
 
         public void DebugSaveZoneData()
         {
-            if(currentZone.currentItemMax >= currentZone.zoneItemMax)
+            if(currentZone.zoneStarSaved >= currentZone.zoneStarGoal)
                 currentZone.isCompleted = true;
 
             StageData nextStageData = StageSave.GetStageData("Zone" + (currentZone.ID + 1));
@@ -75,7 +75,7 @@ namespace BattojutsuStd.Manager
                         //IF STAR COUNT BLA BLA BLA
                         if(currentLevel.levelStar > currentStageData.levels[i].levelStar)
                         {
-                            currentZone.currentItemMax = (currentZone.currentItemMax - currentStageData.levels[i].levelStar) + currentLevel.levelStar;
+                            currentZone.zoneStarSaved = (currentZone.zoneStarSaved - currentStageData.levels[i].levelStar) + currentLevel.levelStar;
                         }
 
                         currentStageData.zone = currentZone;

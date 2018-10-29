@@ -18,8 +18,8 @@ MonoBehaviour:
     ID: 2
     zoneName: Zone2
     zoneTitle: Abandoned City
-    zoneItemMax: 40
-    currentItemMax: 0
+    zoneStarGoal: 30
+    zoneStarSaved: 0
     isCommingSoon: 0
     isCompleted: 0
     isUnlocked: 0

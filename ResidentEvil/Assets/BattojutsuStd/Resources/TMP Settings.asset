@@ -18,7 +18,7 @@ MonoBehaviour:
   m_enableParseEscapeCharacters: 1
   m_missingGlyphCharacter: 0
   m_warningsDisabled: 0
-  m_defaultFontAsset: {fileID: 11400000, guid: c922112cea75d074abddeb6144cfa455, type: 2}
+  m_defaultFontAsset: {fileID: 11400000, guid: 928f59ec7fd3ccb4a8cb1826cb4cbe7d, type: 2}
   m_defaultFontAssetPath: Fonts/
   m_defaultFontSize: 36
   m_defaultAutoSizeMinRatio: 0.5

@@ -18,8 +18,8 @@ MonoBehaviour:
     ID: 3
     zoneName: Zone3
     zoneTitle: Comming Soon
-    zoneItemMax: 40
-    currentItemMax: 0
+    zoneStarGoal: 30
+    zoneStarSaved: 0
     isCommingSoon: 1
     isCompleted: 0
     isUnlocked: 0
